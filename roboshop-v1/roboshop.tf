@@ -8,6 +8,14 @@ resource "aws_instance" "frontend" {
   }
 }
 
+resource "aws_route53_record" "frontend" {
+  zone_id = "Z03012723POIVATFERQS2"
+  name    = "frontend.msahu.online"
+  type    = "A"
+  records = [aws_instance.frontend.private_ip]
+}
+
+
 resource "aws_instance" "mongodb" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t2.micro"
