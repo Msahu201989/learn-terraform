@@ -42,5 +42,5 @@ variable "fruit_stock_with_price" {
 # Acces List of variable list index starts from Zero
 
 output "fruits_first" {
-  value = "var.fruits"
+  value = var.fruits[0]
 }
