@@ -39,8 +39,43 @@ variable "fruits_stock_with_price" {
   }
 }
 
-# Acces List of variable list index starts from Zero
-
+## Access a list variable, List index starts from zero
 output "fruits_first" {
   value = var.fruits[0]
+  // value = element(var.fruits, 0)
+}
+
+output "fruits_second" {
+  value = var.fruits[1]
+}
+
+## Access a Map Variable
+output "fruit_stock_apple" {
+  value = var.fruits_stock["apple"]
+}
+
+output "fruit_stock_with_price_of_apple" {
+  value = var.fruits_stock_with_price["apple"].stock
+}
+
+# variable data Types
+variable "fruits_details" {
+  default = {
+    apple = {
+      stock = 100         # Number
+      type = "Washington" # String
+      for_sale = true     # Boolean
+
+   }
+  }
+}
+
+# Variable in a combination of any other string then it needs to be with in  ${}
+output "fruits_name_1" {
+  value = "Fruit Name = ${var.fruits_name}"
+}
+
+
+output "fruit_details_apple" {
+  value = "Apple Stock = ${var.fruits_details["apple"].stock} , Apple Type = ${var.fruits_details["apple"].type}, Apple Sale Status = ${var.fruits_details["apple"].for_sale}"
 }
