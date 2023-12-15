@@ -39,14 +39,15 @@ resource "aws_instance" "instance" {
   }
 }
 
-#resource "aws_route53_record" "record" {
-#  for_each      = var.components
-#  zone_id       = var.Zone_ID
-#  name          = "frontend.msahu.online"
-#  type          = "A"
-#  records       = [lookup(aws_instance.instance,each.key[""]]
-#}
-#
+resource "aws_route53_record" "record" {
+  for_each      = var.components
+  zone_id       = var.Zone_ID
+  name          = "${lookup(each.value, "name", null)}.msahu.online"
+  type          = "A"
+  ttl           = 30
+  records       = [lookup(lookup(aws_instance.instance, each.key, null), "private_ip", null)]
+}
+
 
 output "instances" {
   value = "aws_instance.instance"
