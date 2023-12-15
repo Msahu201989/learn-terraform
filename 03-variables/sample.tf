@@ -1,34 +1,35 @@
-# Plain Variable
-variable "fruit_name" {
+# Plain variable
+variable "fruits_name" {
   default = "apple"
 }
 
-output "fruit_name" {
-  value = var.fruit_name
+output "fruits_name" {
+  value = "var.fruit_name"
 }
 
 # List Variable
 variable "fruits" {
   default = [
-    "apple",
-    "banana"
+  "apple",
+  "banana"
   ]
-  // default = [ "apple", "banana" ] // Single line syntax
+#  default = ["apple", "banana" ] ?? single line syntax
 }
 
-# Map Variable , Plain
-variable "fruit_stock" {
+# map variable Plain
+
+variable "fruits_stock" {
   default = {
-    apple  = 100
+    apple = 100
     banana = 200
   }
 }
 
-# Map Variable, Map of Maps
-variable "fruit_stock_with_price" {
+#Map variable , Map of Maps
+variable "fruits_stock_with_price" {
   default = {
     apple = {
-      stock = 200
+      stock = 100
       price = 3
     }
     banana = {
@@ -38,8 +39,8 @@ variable "fruit_stock_with_price" {
   }
 }
 
-## Access a list variable, List index starts from zero
+# Acces List of variable list index starts from Zero
+
 output "fruits_first" {
   value = var.fruits[0]
-  // value = element(var.fruits, 0)
 }
