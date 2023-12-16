@@ -6,7 +6,7 @@ terraform {
   }
 }
 
-variable "test" {
+variable test {
   default = hello
 }
 
