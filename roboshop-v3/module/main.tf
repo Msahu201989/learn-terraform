@@ -7,6 +7,10 @@ resource "aws_instance" "instance" {
     Name = var.name
   }
 
+  provisioner "local-exec" {
+    command = "sleep 60"
+  }
+
 }
 
 
