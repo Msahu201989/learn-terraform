@@ -17,5 +17,10 @@ variable "components" {
       instance_type = "t2.micro"
     }
 
+    catalogue = {
+      name          = "catalogue"
+      instance_type = "t2.micro"
+    }
+
   }
 }
