@@ -4,7 +4,7 @@ variable "fruits" {
 
 output "fruit" {
   //value = var.fruits[2]
-  value = element(var.fruits, 3)
+  value = element(var.fruits, 4)
 }
 #
 #variable "fruit_with_stock" {
