@@ -6,20 +6,20 @@ output "fruit" {
   //value = var.fruits[2]
   value = element(var.fruits, 4)
 }
-#
-#variable "fruit_with_stock" {
-#  default = {
-#    apple = {
-#      stock = 100
-#    }
-#  }
-#}
-#
-#output "fruit_stock" {
-#  value = try(var.fruit_with_stock["banana"], 0)
-#}
-#
-#output "fruit_stock_price" {
-#  value = lookup(var.fruit_with_stock["apple"], "price", 2)
-#  // try (var.fruit_with_stock["apple"].price, 2)  - both are same
-#}
+
+variable "fruit_with_stock" {
+  default = {
+    apple = {
+      stock = 100
+    }
+  }
+}
+
+output "fruit_stock" {
+  value = try(var.fruit_with_stock["banana"], 0)
+}
+
+output "fruit_stock_price" {
+  value = lookup(var.fruit_with_stock["apple"], "price", 2)
+  // try (var.fruit_with_stock["apple"].price, 2)  - both are same
+}
