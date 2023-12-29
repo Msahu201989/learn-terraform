@@ -26,6 +26,8 @@ resource "null_resource" "ansible" {
 
   provisioner "local-exec" {
     command = <<EOF
+
+
 cd /home/centos/roboshop24-ansible
 git pull
 sleep 30
