@@ -1,5 +1,13 @@
-resource "aws_s3_bucket_object" "my_object" {
-  bucket = "awswithlinux"
-  key    = "my_snapshot"
-  source = "snap-0fbb8d3a7d4576986"
+variable "ami_id" {
+  default = jdlkdjkada
 }
+
+resource "aws_instance" "instance" {
+  ami = var.ami_id
+  instance_type = "t3.micro"
+  vpc_security_group_ids = ["sg-eddewdewdewd"]
+tags = {
+  Name = "test"
+}
+}
+
