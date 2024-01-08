@@ -3,11 +3,11 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
 
  root_block_device {
-    volume_size = 15
+    volume_size = 20
   }
 
   tags   = {
-    Name = "Test"
+    Name = "Database"
   }
 }
 
