@@ -1,3 +1,3 @@
-#output "test" {
+#output "test.json" {
 #  value = "Hello world"
 #}
